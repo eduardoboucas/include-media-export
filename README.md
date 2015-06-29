@@ -24,7 +24,7 @@ Download `_include-media-export.scss` and include it in your Sass project
 
 ### JavaScript
 
-Import `includeMedia.js` onto your project. This file is just a simplistic approach to access the information sent across by include-media. Feel free to extend it to fit your needs.
+Import `includeMedia.min.js` onto your project. This file is just a simplistic approach to access the information sent across by include-media. Feel free to extend it to fit your needs.
 
 ## API
 
