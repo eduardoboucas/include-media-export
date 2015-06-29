@@ -6,7 +6,7 @@
 
 ### Introduction
 
-**include-media** is a good solution for storing a list of breakpoints and using them to alter the behavior of a website using media queries. However, that list of breakpoints is restricted to the scope of the CSS stylesheets. That is fine most of the times, but it's not uncommon for developers to need access to that data on the JavaScript side. The concept is described [here](https://css-tricks.com/making-sass-talk-to-javascript-with-json/).
+[**include-media**](https://github.com/eduardoboucas/include-media) is a good solution for storing a list of breakpoints and using them to alter the behavior of a website using media queries. However, that list of breakpoints is restricted to the scope of the CSS stylesheets. That is fine most of the times, but it's not uncommon for developers to need access to that data on the JavaScript side. The concept is described [here](https://css-tricks.com/making-sass-talk-to-javascript-with-json/).
 
 This plugin grabs all the breakpoints from **include-media** and outputs their status as JSON format on the `content` property of a DOM object (`<body>` by default), allowing developers to make decisions based on the viewport width without having to re-declare their breakpoints, leading to maintainability problems.
 
