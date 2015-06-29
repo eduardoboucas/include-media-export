@@ -16,7 +16,7 @@ More information about this plugin can be found [here](https://eduardoboucas.com
 
 ### Sass
 
-Download [this file](#) and include it in your Sass project
+Download `_include-media-export.scss` and include it in your Sass project
 
 ```scss
 @import 'include-media-export';
