@@ -2,7 +2,7 @@
 
 # include-media
 
-> Export breakpoints plugin
+## Export breakpoints plugin
 
 ### Introduction
 
