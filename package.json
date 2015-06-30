@@ -1,6 +1,6 @@
 {
-  "title": "include-media",
-  "name": "include-media",
+  "title": "include-media-export",
+  "name": "include-media-export",
   "version": "0.0.1",
   "description": "An include-media plugin for exporting breakpoints from Sass to JavaScript",
   "repository": {
