@@ -77,7 +77,7 @@ var im = (function () {
   **/
   function removeQuotes(string) {
       if (typeof string === 'string' || string instanceof String) {
-          string = string.replace(/^['"]+|\s+|\\|(;\s?})+|['"]$/g, '');
+          string = string.replace(/[']/g,'"').replace(/\\|^[\s\S]{0,1}|[\s\S]$/g, "");
       }
 
       return string;
