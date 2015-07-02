@@ -1,4 +1,4 @@
-var im = (function () {
+var im = (function() {
   var element = document.body;
   var autoUpdate = true;
   var breakpoints = false;
@@ -15,12 +15,12 @@ var im = (function () {
   }
 
   function readBreakpoints() {
-    if (window.getComputedStyle && (window.getComputedStyle(element, '::after').content != '')) {
+    if (window.getComputedStyle && (window.getComputedStyle(element, '::after').content !== '')) {
       var data = window.getComputedStyle(element, '::after').content;
 
       try {
         breakpoints = JSON.parse(removeQuotes(data));
-      } catch(err) {}
+      } catch (err) {}
     }
   }
 
@@ -76,11 +76,11 @@ var im = (function () {
   *
   **/
   function removeQuotes(string) {
-      if (typeof string === 'string' || string instanceof String) {
-          string = string.replace(/^['"]+|\s+|\\|(;\s?})+|['"]$/g, '');
-      }
+    if (typeof string === 'string' || string instanceof String) {
+      string = string.replace(/[']/g, '"').replace(/\\|^[\s\S]{0,1}|[\s\S]$/g, '');
+    }
 
-      return string;
+    return string;
   }
 
   return {
@@ -91,5 +91,5 @@ var im = (function () {
     getActive: getActiveBreakpoint,
     getValue: getBreakpointValue,
     update: readBreakpoints
-  }
+  };
 })();
