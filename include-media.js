@@ -29,9 +29,7 @@ var im = (function () {
       readBreakpoints();
     }
 
-    return breakpoints.hasOwnProperty(breakpoint) &&
-           breakpoints[breakpoint].hasOwnProperty('active') &&
-           breakpoints[breakpoint].active;
+    return breakpoints.hasOwnProperty(breakpoint) && breakpoints[breakpoint].active;
   }
 
   function isBreakpointNotActive(breakpoint) {
@@ -46,7 +44,7 @@ var im = (function () {
     var largest = {name: false, value: 0};
 
     for (var breakpoint in breakpoints) {
-      if (breakpoints.hasOwnProperty(breakpoint) && breakpoints[breakpoint].hasOwnProperty('active')) {
+      if (breakpoints.hasOwnProperty(breakpoint)) {
         var breakpointValue = parseFloat(breakpoints[breakpoint].value);
 
         if (breakpoints[breakpoint].active && (breakpointValue > largest.value)) {
