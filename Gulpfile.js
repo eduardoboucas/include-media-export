@@ -6,6 +6,7 @@
 
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
+var packageInfo = require('./package.json');
 
 
 // -----------------------------------------------------------------------------
@@ -13,12 +14,12 @@ var plugins = require('gulp-load-plugins')();
 // -----------------------------------------------------------------------------
 
 gulp.task('compress', function() {
-  return gulp.src('./includeMedia.js')
+  return gulp.src('./include-media.js')
     .pipe(plugins.uglify())
     .pipe(plugins.rename({
-      suffix: '.min'
+      suffix: '-' + packageInfo.version + '.min'
     }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./dist'));
 });
 
 // -----------------------------------------------------------------------------

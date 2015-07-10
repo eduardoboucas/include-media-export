@@ -7,7 +7,7 @@
     "Eduardo Boucas <mail@eduardoboucas.com>"
   ],
   "description": "An include-media plugin for exporting breakpoints from Sass to JavaScript",
-  "main": "_include-media-export.scss",
+  "main": "dist/_include-media-export.scss",
   "keywords": [
     "breakpoint",
     "breakpoints",
