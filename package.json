@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/eduardoboucas/include-media-export.git"
   },
-  "main": "_include-media-export.scss",
+  "main": "dist/_include-media-export.scss",
   "author": {
     "name": "Eduardo Boucas",
     "email": "mail@eduardoboucas.com"
