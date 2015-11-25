@@ -10,7 +10,7 @@
 
 This plugin grabs all the breakpoints from **include-media** and outputs their status as JSON format on the `content` property of a DOM object (`<body>` by default), allowing developers to make decisions based on the viewport width without having to re-declare their breakpoints, leading to maintainability problems.
 
-More information about this plugin can be found [here](https://eduardoboucas.com/blog/2016/06/29/using-breakpoints-in-javascript-with-include-media.html).
+More information about this plugin can be found [here](https://eduardoboucas.com/blog/2015/06/29/exporting-breakpoints-from-css-to-javascript-with-include-media.html).
 
 ## Installation
 
