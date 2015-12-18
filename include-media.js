@@ -1,4 +1,12 @@
-var im = (function() {
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    module.exports = factory();
+  } else {
+    root.im = factory();
+  }
+}(this, function () {
   var element = document.body;
   var autoUpdate = true;
   var breakpoints = false;
@@ -90,4 +98,4 @@ var im = (function() {
     getValue: getBreakpointValue,
     update: readBreakpoints
   };
-})();
+}));
