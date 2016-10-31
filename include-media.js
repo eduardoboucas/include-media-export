@@ -29,8 +29,7 @@
       try {
         breakpoints = JSON.parse(removeQuotes(data));
       } catch (err) {}
-    }
-    else {
+    } else {
       breakpoints = false;
     }
   }
