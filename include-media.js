@@ -28,10 +28,11 @@
 
       try {
         breakpoints = JSON.parse(removeQuotes(data));
+        return;
       } catch (err) {}
-    } else {
-      breakpoints = false;
-    }
+    } 
+    
+    breakpoints = false;
   }
 
   function isBreakpointActive(breakpoint) {
