@@ -33,7 +33,7 @@
       }
     } else {
       breakpoints = false;
-    }    
+    }
   }
 
   function isBreakpointActive(breakpoint) {
