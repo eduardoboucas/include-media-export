@@ -1,0 +1,55 @@
+@import './node_modules/sass-true/sass/true';
+@import './node_modules/include-media/dist/include-media';
+
+@import './src/helpers/breakpoints-to-json';
+@import './src/helpers/map-sort';
+@import './src/helpers/export';
+
+$breakpoints: (
+    'tablet': 768px,
+    'phone': 320px,
+    'desktop': 1024px
+);
+
+
+@include describe('Mixin: im-export())') {
+  @include it('A list of media queries with one ruleset each (defining a pseudo-element on the body element with a JSON string as content) is generated from a $breakpoints map.') {
+    @include assert {
+      @include output($selector: false) {
+        @include im-export('body::after');
+      }
+
+      @include expect($selector: false) {
+        @media (min-width: 320px) {
+          body::after {
+            content: '{"phone":{"value": "320px", "active": true}, "tablet":{"value": "768px", "active": false}, "desktop":{"value": "1024px", "active": false}}';
+            display: block;
+            height: 0;
+            overflow: hidden;
+            width: 0;
+          }
+        }
+
+        @media (min-width: 768px) {
+          body::after {
+            content: '{"phone":{"value": "320px", "active": true}, "tablet":{"value": "768px", "active": true}, "desktop":{"value": "1024px", "active": false}}';
+            display: block;
+            height: 0;
+            overflow: hidden;
+            width: 0;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          body::after {
+            content: '{"phone":{"value": "320px", "active": true}, "tablet":{"value": "768px", "active": true}, "desktop":{"value": "1024px", "active": true}}';
+            display: block;
+            height: 0;
+            overflow: hidden;
+            width: 0;
+          }
+        }
+      }
+    }
+  }
+}

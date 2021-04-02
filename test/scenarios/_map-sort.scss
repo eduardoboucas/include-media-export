@@ -1,0 +1,11 @@
+@import './node_modules/sass-true/sass/true';
+@import './src/helpers/map-sort';
+
+@include describe('Function: map-sort()') {
+  @include it('Returns a map sorted by value (ascending)') {
+    @include assert-equal(
+      inspect(map-sort-by-values(('median': 1750px, 'smallest': 1500px, 'biggest': 2000px))),
+      '("smallest": 1500px, "median": 1750px, "biggest": 2000px)'
+    )
+  }
+}

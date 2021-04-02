@@ -1,0 +1,55 @@
+@import './node_modules/sass-true/sass/true';
+@import './node_modules/include-media/dist/include-media';
+
+@import './src/helpers/breakpoints-to-json';
+@import './src/helpers/map-sort';
+@import './src/helpers/export';
+
+$breakpoints: (
+    'kilo': 1000px,
+    'mega': 10000px,
+    'hecto': 100px
+);
+
+
+@include describe('Mixin: im-export() [dangerously unsorted]') {
+  @include it('An unsorted list of media queries is generated from a $breakpoints map.') {
+    @include assert {
+      @include output($selector: false) {
+        @include im-export('body::after');
+      }
+
+      @include expect($selector: false) {
+        @media (min-width: 1000px) {
+          body::after {
+            content: '{"kilo":{"value": "1000px", "active": true}, "mega":{"value": "10000px", "active": false}, "hecto":{"value": "100px", "active": true}}';
+            display: block;
+            height: 0;
+            overflow: hidden;
+            width: 0;
+          }
+        }
+
+        @media (min-width: 10000px) {
+          body::after {
+            content: '{"kilo":{"value": "1000px", "active": true}, "mega":{"value": "10000px", "active": true}, "hecto":{"value": "100px", "active": true}}';
+            display: block;
+            height: 0;
+            overflow: hidden;
+            width: 0;
+          }
+        }
+
+        @media (min-width: 100px) {
+          body::after {
+            content: '{"kilo":{"value": "1000px", "active": false}, "mega":{"value": "10000px", "active": false}, "hecto":{"value": "100px", "active": true}}';
+            display: block;
+            height: 0;
+            overflow: hidden;
+            width: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+///
+/// Returns a map sorted by value (ascending)
+///
+/// @param {Map} $map - A Sass map to be sorted
+/// @author Andrew Luca (https://gist.github.com/Jakobud/a0ac11e80a1de453cd86f0d3fc0a1410#gistcomment-2327765)
+///
+@function map-sort-by-values($map) {
+  // Transform map to zipped list
+  $keys: ();
+  $values: ();
+
+  @each $key, $val in $map {
+    $keys: append($keys, $key);
+    $values: append($values, $val);
+  }
+
+  $list: zip($keys, $values);
+
+  $sortedMap: ();
+  @while length($list) > 0 {
+
+    // Find smallest pair
+    $smallestPair: nth($list, 1);
+    @each $pair in $list {
+      $value: nth($pair, 2);
+      $smallestValue: nth($smallestPair, 2);
+      @if $value < $smallestValue {
+        $smallestPair: $pair;
+      }
+    }
+
+    // Add smallest pair to sorted map
+    $key: nth($smallestPair, 1);
+    $value: nth($smallestPair, 2);
+    $sortedMap: map-merge($sortedMap, ($key: $value));
+
+    // Remove from list smallest pair
+    $smallestPairIndex: index($list, $smallestPair);
+    $newList: ();
+    @for $i from 1 through length($list) {
+      @if $i != $smallestPairIndex {
+        $newList: append($newList, nth($list, $i), "space");
+      }
+    }
+    $list: $newList;
+  }
+
+  @return $sortedMap;
+}
