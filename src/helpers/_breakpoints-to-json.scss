@@ -27,31 +27,3 @@
 
   @return '{#{$breakpoints-json}}';
 }
-
-///
-/// Generates the media queries necessary to export breakpoints
-///
-/// @param {String} $element - Element to append JSON data to
-///
-@mixin im-export($element) {
-  // shadow the global variable in local scope for testability
-  $breakpoints: $breakpoints;
-
-  @if not variable-exists('im-dangerously-use-unsorted-breakpoints') {
-    $breakpoints: map-sort-by-values($breakpoints);
-  }
-
-  @each $name, $value in $breakpoints {
-    @include media('>=#{$name}') {
-      #{$element} {
-        content: im-breakpoints-to-json($name);
-        display: block;
-        height: 0;
-        overflow: hidden;
-        width: 0;
-      }
-    }
-  }
-}
-
-@include im-export(if(variable-exists('im-export-element'), $im-export-element + '::after', 'body::after'));

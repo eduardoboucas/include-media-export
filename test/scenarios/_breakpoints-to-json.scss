@@ -1,0 +1,21 @@
+@import './node_modules/sass-true/sass/true';
+
+$breakpoints: (
+    "xs": 500px,
+    "s": 750px,
+    "m": 1000px
+);
+
+@import './src/helpers/breakpoints-to-json';
+
+@include describe('Function: im-breakpoints-to-json()') {
+  @include it('Returns the JSON string for a specific breakpoint from a $breakpoints map') {
+    @include assert-equal(
+      im-breakpoints-to-json('s'),
+      '{"xs":{"value": "500px", "active": true}, "s":{"value": "750px", "active": true}, "m":{"value": "1000px", "active": false}}'
+    )
+  }
+}
+
+
+

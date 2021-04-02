@@ -1,7 +1,7 @@
 {
   "title": "include-media-export",
   "name": "include-media-export",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "An include-media plugin for exporting breakpoints from Sass to JavaScript",
   "repository": {
     "type": "git",
@@ -18,10 +18,17 @@
   "homepage": "https://github.com/eduardoboucas/include-media-export",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.5.2",
-    "gulp-load-plugins": "^0.10.0",
-    "gulp-uglify": "~1.2",
-    "gulp-rename": "~1.2"
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^2.0.6",
+    "gulp-rename": "~2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "~3.0.2",
+    "include-media": "^1.4.9",
+    "mocha": "^8.3.2",
+    "sass-true": "^5.0.0"
+  },
+  "scripts": {
+    "test": "gulp test-scss && node_modules/.bin/mocha"
   }
 }

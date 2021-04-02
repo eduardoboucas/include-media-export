@@ -34,6 +34,18 @@ You can also use install the plugin using Bower
 bower install include-media-export
 ```
 
+## Configuration
+
+### Sass
+
+To ensure correct behaviour, this plugin will sort your breakpoints map by value (asc). You can opt out of this if necessary by defining
+
+```scss
+$im-dangerously-use-unsorted-breakpoints: true;
+```
+
+before you declare your `@import 'include-media-export';`.
+
 ## API
 
 ###`im.greaterThan(breakpoint)`
